@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  gap: 20px;
+  padding: 10px 20px;
+  background-color: #222;
+  color: white;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header a.active {
+  color: #ffcc00;
+}
+
+main {
+  padding: 20px;
+  min-height: 70vh;
+  background-color: #f9f9f9;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #222;
+  color: white;
+}

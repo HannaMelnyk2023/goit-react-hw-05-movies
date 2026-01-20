@@ -1,15 +1,17 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import styles from './Layout.module.css';
+
 export default function Layout() {
     return (
         <>
-            <header> 
+            <header className = {styles.header}> 
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/movies">Movies</NavLink>
             </header>
-            <main>
+            <main className = {styles.main}>
                 <Outlet />
             </main>
-            <footer>Footer</footer>
+            <footer className={styles.footer}>Footer</footer>
         </>
         
     );

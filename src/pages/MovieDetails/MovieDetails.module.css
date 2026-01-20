@@ -1,0 +1,32 @@
+.container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  margin: 15px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.nav a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
