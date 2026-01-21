@@ -1,7 +1,7 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
-export async function fetchTrendingMovie() {
+export async function fetchTrendingMovies() {
     const responce = await fetch(
         `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
     );
