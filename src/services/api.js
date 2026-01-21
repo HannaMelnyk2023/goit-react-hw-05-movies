@@ -25,7 +25,7 @@ export async function fetchMovieByQuery(query) {
     return responce.json();
 }
 
-export async function fetchMovieByDetails(movieId) {
+export async function fetchMovieDetails(movieId) {
     const responce = await fetch(
         `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
     );
@@ -37,7 +37,7 @@ export async function fetchMovieByDetails(movieId) {
     return responce.json();
 }
 
-export async function fetchMovieCreditsy(movieId) {
+export async function fetchMovieCredits(movieId) {
     const responce = await fetch(
         `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
     );
