@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchTrending } from 'services/api';
+import { fetchTrendingMovies } from 'services/api';
 import MovieList from '../../components/MovieList/MovieList';
+import { fetchTrendingMovie } from 'services/api';
 
 export default function Home() {
     const [movies, setMovies] = useState([]);
@@ -9,9 +10,9 @@ export default function Home() {
     useEffect(() => {
         setIsLoading(true);
 
-        fetchTrending()
-            .then(data => setMovies(data))
-            .finally(() => setIsLoading(false));
+        fetchTrendingMovies()
+            .then(data => setMovies(data.results))
+            .catch(console.error);
             
     }, []);
     return (
