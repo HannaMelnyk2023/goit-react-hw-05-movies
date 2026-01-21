@@ -1,38 +1,62 @@
-export const fetchTrending = () =>
-    Promise.resolve([
-        { id: 1, title: 'Avatar', poster_path: '/fake1.jpg' },
-        { id: 2, title: 'Inception', poster_path: '/fake2.jpg' },
-        { id: 3, title: 'Interstellar', poster_path: '/fake3.jpg' },
-    ]);
+const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
-export const searchMovies = query =>
-    Promise.resolve([
-        { id: 10, title: `Result for "${query}"`, poster_path: '/fake4.jpg' },
-    ]);
+export async function fetchTrendingMovie() {
+    const responce = await fetch(
+        `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
+    );
 
-export const getMovieDetails = id =>
-    Promise.resolve({
-        id,
-        title: `Movie ${id}`,
-        overview: 'Fake description for testing routing.',
-        genres: [{ id: 1, name: 'Drama' }],
-    });
+    if (!responce.ok) {
+        throw new Error('Failed to fetch trending movies');
+    }
 
-export const getMovieCredits = () =>
-    Promise.resolve([
-        { id: 1, name: 'Leonardo DiCaprio', character: 'Main role' },
-    ]);
+    return responce.json();
+}
 
-export const getMovieReviews = () =>
-    Promise.resolve([
-        { id: 1, author: 'John', content: 'Great fake review!' },
-    ]);
+export async function fetchMovieByQuery(query) {
+    const responce = await fetch(
+        `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+    );
 
-// import for page:
-// import {
-//     fetchTrending,
-//     searchMovies,
-//     getMovieDetails,
-//     getMovieCredits,
-//     getMovieReviews,
-// } from '../../services/fakeApi';
+    if (!responce.ok) {
+        throw new Error('Failed to fetch movies');
+    }
+
+    return responce.json();
+}
+
+export async function fetchMovieByDetails(movieId) {
+    const responce = await fetch(
+        `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
+    );
+
+    if (!responce.ok) {
+        throw new Error('Failed to fetch movie details');
+    }
+
+    return responce.json();
+}
+
+export async function fetchMovieCreditsy(movieId) {
+    const responce = await fetch(
+        `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
+    );
+
+    if (!responce.ok) {
+        throw new Error('Failed to fetch credits');
+    }
+
+    return responce.json();
+}
+
+export async function fetchMovieReviews(movieId) {
+    const responce = await fetch(
+        `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`
+    );
+
+    if (!responce.ok) {
+        throw new Error('Failed to fetch reviews');
+    }
+
+    return responce.json();
+}
